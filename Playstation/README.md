@@ -11,8 +11,8 @@ Auto Splitter for Chrono Cross PS1
 ## Features
 
 - Currently supports autosplitting for Bizhawk
-- Automatically start when Serge's name is confirmed
-- Autmatically reset when console is reset (or user loads save state at Serge's name entry)
+- Automatically start when you gain control of Richter.
+- Autmatically reset when the player starts playing in a new file and the IGT restarts.
 
 ## Installation 
 
