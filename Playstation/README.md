@@ -45,9 +45,3 @@ Here you can enable/disable the options for auto start and auto splitting.
 ## Thanks
 
 - Thanks to [Coltaho](https://github.com/Coltaho) for the base BizHawk autosplitter code.
-
-## Contact
-
-If you encounter any issues or have feature requests, please let me know! 
-
-- [Coltaho](http://twitch.tv/Coltaho) or Coltaho#2016 on Discord
