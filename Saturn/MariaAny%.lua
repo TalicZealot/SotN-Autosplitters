@@ -10,7 +10,8 @@ local splits = {}
 splits["Hippogryph"] =
 {
     on = true,
-    split = false
+    split = false,
+    spawned = false
 }
 splits["SecondCastle"] =
 {
@@ -20,16 +21,15 @@ splits["SecondCastle"] =
 splits["Medusa"] =
 {
     on = true,
-    split = false
+    split = false,
+    spawned = false
 }
 splits["Shaft"] =
 {
     on = true,
-    split = false
+    split = false,
+    spawned = false
 }
-local hippoSpawned = false
-local medusaSpawned = false
-local shaftSpawned = false
 
 local function init_livesplit()
     pipe_handle = io.open("//./pipe/LiveSplit", 'a')
@@ -52,9 +52,9 @@ local function RestartSplits()
     splits["SecondCastle"].split = false
     splits["Medusa"].split = false
     splits["Shaft"].split = false
-    hippoSpawned = false
-    medusaSpawned = false
-    shaftSpawned = false
+    splits["Hippogryph"].spawned = false
+    splits["Medusa"].spawned = false
+    splits["Shaft"].spawned = false
 end
 
 local function MapXposition()
@@ -126,9 +126,9 @@ local function main()
 
     if splits["Hippogryph"].on and not splits["Hippogryph"].split then
 
-        if bossEntityHp > 1  and (mapXposition == 23 or mapXposition == 24) and mapYposition == 13 then
-            hippoSpawned = true
-        elseif hippoSpawned and bossEntityHp < 1  and (mapXposition == 23 or mapXposition == 24) and mapYposition == 13 then
+        if bossEntityHp > 1 and bossEntityHp < 800 and (mapXposition == 23 or mapXposition == 24) and mapYposition == 13 then
+            splits["Hippogryph"].spawned = true
+        elseif splits["Hippogryph"].spawned and bossEntityHp < 1  and (mapXposition == 23 or mapXposition == 24) and mapYposition == 13 then
             print("Split: Hippogryph")
             pipe_handle:write("split\r\n")
             pipe_handle:flush()
@@ -146,9 +146,9 @@ local function main()
     end
 
     if splits["Medusa"].on and not splits["Medusa"].split then
-        if bossEntityHp > 1 and (mapXposition == 39 or mapXposition == 40) and mapYposition == 50 then
-            medusaSpawned = true
-        elseif medusaSpawned and bossEntityHp < 1 and (mapXposition == 39 or mapXposition == 40) and mapYposition == 50 then
+        if bossEntityHp > 1 and bossEntityHp < 1100 and (mapXposition == 39 or mapXposition == 40) and mapYposition == 50 then
+            splits["Medusa"].spawned = true
+        elseif splits["Medusa"].spawned and bossEntityHp < 1 and (mapXposition == 39 or mapXposition == 40) and mapYposition == 50 then
             print("Split: Medusa")
             pipe_handle:write("split\r\n")
             pipe_handle:flush()
@@ -157,9 +157,9 @@ local function main()
     end
 
     if splits["Shaft"].on and not splits["Shaft"].split then
-        if bossEntityHp > 1 and mapXposition == 31 and mapYposition == 34 then
-            shaftSpawned = true
-        elseif shaftSpawned and bossEntityHp < 1 and mapXposition == 31 and mapYposition == 34 then
+        if bossEntityHp > 1 and bossEntityHp < 1300 and mapXposition == 31 and mapYposition == 34 then
+            splits["Shaft"].spawned = true
+        elseif splits["Shaft"].spawned and bossEntityHp < 1 and mapXposition == 31 and mapYposition == 34 then
             print("Split: Shaft")
             pipe_handle:write("split\r\n")
             pipe_handle:flush()
