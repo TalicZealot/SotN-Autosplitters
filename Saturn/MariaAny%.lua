@@ -2,9 +2,6 @@
 -- Base code by Trysdyn Black
 -- Requires LiveSplit 1.7+
 
-world = -1
-stage = -1
-boss = false
 local started = false
 local splits = {}
 splits["Hippogryph"] =
