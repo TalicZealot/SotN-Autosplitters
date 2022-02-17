@@ -1,18 +1,23 @@
 # SotN Autosplitter for Bizhawk
 
-Auto Splitter for Chrono Cross PS1
-
 - [LiveSplit](http://livesplit.github.io/) - Here you can find out more about and download LiveSplit. It is a popular timer program typically used for speedruns.
 - [ASL](https://github.com/LiveSplit/LiveSplit/blob/master/Documentation/Auto-Splitters.md) - Here you can find more information about ASL (basically C#) and autosplitters in general.
 
 **Supported emulators for autosplitting:**
+
  - Bizhawk with Octoshock core version 2.6.0+
 
 ## Features
 
-- Currently supports autosplitting for Bizhawk
+- Automatic start.
+- Automatic restart.
 - Automatically start when you gain control of Richter.
-- Autmatically reset when the player starts playing in a new file and the IGT restarts.
+- Automatically reset when the player starts playing in a new file and the IGT restarts.
+- Splits on acquiring a relic.
+- Splits on acquiring a progression item.
+- Splits on entering the inverted castle.
+- Splits on defeating a boss.
+- Splits on entering certain locations.
 
 ## Installation 
 
