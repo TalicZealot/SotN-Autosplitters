@@ -24,7 +24,7 @@
 ```
 splits["Hippogryph"] =
 {
-    on = **false**,
+    on = false,
     split = false
 }
 ```
