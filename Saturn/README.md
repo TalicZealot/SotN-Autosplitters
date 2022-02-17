@@ -15,7 +15,7 @@
 
 ## Usage
 
-- Download https://raw.githubusercontent.com/TalicZealot/SotN-Autosplitters/master/Saturn/MariaAny%.lua
+- Download https://raw.githubusercontent.com/TalicZealot/SotN-Autosplitters/main/Saturn/MariaAny%25.lua
 - Open LiveSplit and set up your splits as follows: Hippogryph, Inverted Castle, Medusa, Shaft
 - Open the game.
 - Open the file you downloaded through Tools > Lua Console > Script > Open Script
