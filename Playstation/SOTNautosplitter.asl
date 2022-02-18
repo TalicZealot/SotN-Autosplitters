@@ -48,6 +48,17 @@ startup {
 	settings.Add("SecondCastle", true, "Second Castle", "locations");
 
 	settings.Add("bosses", true, "---Bosses---");
+
+	settings.Add("DraculaPrologue", false, "Dracula Prologue", "bosses");
+	settings.Add("SlograGaibon", false, "Slogra & Gaibon", "bosses");
+	settings.Add("Doppleganger10", false, "Doppleganger 10", "bosses");
+	settings.Add("MinotaurWerewolf", false, "Minotaur & Werewolf", "bosses");
+	settings.Add("LesserDemon", false, "Lesser Demon", "bosses");
+	settings.Add("Karasuman", false, "Karasuman", "bosses");
+	settings.Add("Succubus", false, "Succubus", "bosses");
+	settings.Add("Scylla", false, "Scylla", "bosses");
+	settings.Add("Cerberus", false, "Cerberus", "bosses");
+	settings.Add("Granfaloon", false, "Granfaloon", "bosses");
 	settings.Add("Hippogryph", false, "Hippogryph", "bosses");
 	settings.Add("Olrox", false, "Olrox", "bosses");
 	settings.Add("DarkwingBat", false, "Darkwing Bat", "bosses");
@@ -66,7 +77,7 @@ startup {
 	settings.Add("debug", false, "Print Debug Info", "scriptsection");
 	
 	settings.Add("infosection", true, "---Info---");
-	settings.Add("info", true, "Castlevania: Symphony of the Night AutoSplitter v1.0 by TalicZealot", "infosection");
+	settings.Add("info", true, "Castlevania: Symphony of the Night AutoSplitter v1.1 by TalicZealot", "infosection");
 	settings.Add("info1", true, "- Autosplit: Bizhawk", "infosection");
 	settings.Add("info2", true, "- Website : https://github.com/TalicZealot", "infosection");
 }
@@ -129,10 +140,34 @@ init {
 			new MemoryWatcher<byte>(new DeepPointer(vars.myBaseAddress + 0x1E5458)) { Name = "SecondCastle" },
 
 			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x076ed6)) { Name = "BossEntityHp" },
-			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x077e42)) { Name = "BossEntityHp2" },
-			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x077a96)) { Name = "BossEntityHp3" },
-			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x0774b6)) { Name = "BossEntityHp4" },
-			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x076316)) { Name = "BossEntityHp5" },
+			//TimeAttack
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA28 )) { Name = "DraculaPrologue" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA2C )) { Name = "Olrox" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA30 )) { Name = "Doppleganger10" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA34 )) { Name = "Granfaloon" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA38 )) { Name = "MinotaurWerewolf" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA3C )) { Name = "Scylla" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA40 )) { Name = "SlograGaibon" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA44 )) { Name = "Hippogryph" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA48 )) { Name = "Beelzebub" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA4C )) { Name = "Succubus" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA50 )) { Name = "Karasuman" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA54 )) { Name = "Trio" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA58 )) { Name = "Death" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA5C )) { Name = "Cerberus" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA60 )) { Name = "SaveRichter" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA64 )) { Name = "Medusa" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA68 )) { Name = "Creature" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA6C )) { Name = "LesserDemon" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA70 )) { Name = "Doppleganger40" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA74 )) { Name = "Akmodan" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA78 )) { Name = "DarkwingBat" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA7C )) { Name = "Galamoth" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA80 )) { Name = "FinalSave" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA84 )) { Name = "MeetingDeath" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA88 )) { Name = "GetHolyGlasses" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA8C )) { Name = "MeetLibrarian" },
+			new MemoryWatcher<short>(new DeepPointer(vars.myBaseAddress + 0x03CA90 )) { Name = "MeetMaria" },
 		};
 
 		vars.watchersInitialized = true;
@@ -385,9 +420,10 @@ init {
 
 	vars.LibraryCardFromColosseum = (Func<bool>)(() =>
 	{
-		return vars.watchers["MapX"].Current == 50 && vars.watchers["MapX"].Old == 21
+		return vars.watchers["MapX"].Current == 50 && vars.watchers["MapY"].Current == 20
+		&& ((vars.watchers["MapX"].Old == 21 && vars.watchers["MapY"].Old == 22)
+		|| (vars.watchers["MapX"].Old == 13 && vars.watchers["MapY"].Old == 24))
 		&& vars.watchers["MapXOffset"].Current == 0 && vars.watchers["MapXOffset"].Old == 0
-		&& vars.watchers["MapY"].Current == 20 && vars.watchers["MapY"].Old == 22
 		&& vars.watchers["MapYOffset"].Current == 0 && vars.watchers["MapYOffset"].Old == 0;
 	});
 
@@ -401,72 +437,109 @@ init {
 
 	//Bosses
 
-	vars.HippoDefeated = (Func<bool>)(() =>
+	vars.DraculaPrologueDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(23) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (12) && vars.MapYOffset(0) 
-		&& vars.watchers["BossEntityHp"].Old > 0 && vars.watchers["BossEntityHp"].Old < 800 && vars.watchers["BossEntityHp"].Current < 1;
+		return vars.watchers["DraculaPrologue"].Old == 0 && vars.watchers["DraculaPrologue"].Current > 0;
 	});
 
 	vars.OlroxDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(19) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (16) && (vars.MapYOffset(0) || vars.MapYOffset(1)) 
-		&& vars.watchers["BossEntityHp2"].Old > 0 && vars.watchers["BossEntityHp2"].Old < 800 && vars.watchers["BossEntityHp2"].Current < 1;
+		return vars.watchers["Olrox"].Old == 0 && vars.watchers["Olrox"].Current > 0;
 	});
 
-	vars.DarkwingDefeated = (Func<bool>)(() =>
+	vars.Doppleganger10Defeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(23) && vars.MapXOffset(0) && vars.MapY (53) && vars.MapYOffset(0) 
-		&& vars.watchers["BossEntityHp"].Old > 0 && vars.watchers["BossEntityHp"].Old < 600 && vars.watchers["BossEntityHp"].Current < 1;
+		return vars.watchers["Doppleganger10"].Old == 0 && vars.watchers["Doppleganger10"].Current > 0;
 	});
 
-	vars.MedusaDefeated = (Func<bool>)(() =>
+	vars.GranfaloonDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(39) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (50) && vars.MapYOffset(0) 
-		&& vars.watchers["BossEntityHp"].Old > 0 && vars.watchers["BossEntityHp"].Old < 1100 && vars.watchers["BossEntityHp"].Current < 1;
+		return vars.watchers["Granfaloon"].Old == 0 && vars.watchers["Granfaloon"].Current > 0;
 	});
 
-	vars.AkmodanDefeated = (Func<bool>)(() =>
+	vars.MinotaurWerewolfDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(43) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (46) && (vars.MapYOffset(0) || vars.MapYOffset(1)) 
-		&& vars.watchers["BossEntityHp3"].Old > 0 && vars.watchers["BossEntityHp3"].Old < 1200 && vars.watchers["BossEntityHp3"].Current < 1;
+		return vars.watchers["MinotaurWerewolf"].Old == 0 && vars.watchers["MinotaurWerewolf"].Current > 0;
 	});
 
-	vars.TrioDefeated = (Func<bool>)(() =>
+	vars.ScyllaDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(43) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (41) && vars.MapYOffset(0) 
-		&& (vars.watchers["BossEntityHp"].Old > 0 || vars.watchers["BossEntityHp3"].Old > 0 || vars.watchers["BossEntityHp4"].Old > 0)
-		&& vars.watchers["BossEntityHp"].Current < 1 && vars.watchers["BossEntityHp3"].Current < 1 && vars.watchers["BossEntityHp4"].Current < 1;
+		return vars.watchers["Scylla"].Old == 0 && vars.watchers["Scylla"].Current > 0;
+	});
+
+	vars.SlograGaibonDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["SlograGaibon"].Old == 0 && vars.watchers["SlograGaibon"].Current > 0;
+	});
+
+	vars.HippogryphDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["Hippogryph"].Old == 0 && vars.watchers["Hippogryph"].Current > 0;
 	});
 
 	vars.BeelzebubDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(51) && (vars.MapXOffset(0) || vars.MapXOffset(1)|| vars.MapXOffset(2)|| vars.MapXOffset(3))
-		&& vars.MapY (35) && (vars.MapYOffset(0) || vars.MapYOffset(1)) 
-		&& vars.watchers["BossEntityHp"].Old > 0 && vars.watchers["BossEntityHp"].Old < 2000 && vars.watchers["BossEntityHp"].Current < 1;
+		return vars.watchers["Beelzebub"].Old == 0 && vars.watchers["Beelzebub"].Current > 0;
 	});
 
-	vars.CreatureDefeated = (Func<bool>)(() =>
+	vars.SuccubusDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(5) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (40) && vars.MapYOffset(0)
-		&& vars.watchers["BossEntityHp"].Old > 0 && vars.watchers["BossEntityHp"].Old < 1100 && vars.watchers["BossEntityHp"].Current < 1;
+		return vars.watchers["Succubus"].Old == 0 && vars.watchers["Succubus"].Current > 0;
 	});
 
-	vars.Dopple40Defeated = (Func<bool>)(() =>
+	vars.KarasumanDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(23) && vars.MapXOffset(0) && vars.MapY (24) && vars.MapYOffset(0)
-		&& vars.watchers["BossEntityHp5"].Old > 0 && vars.watchers["BossEntityHp5"].Old < 777 && vars.watchers["BossEntityHp5"].Current < 1;
+		return vars.watchers["Karasuman"].Old == 0 && vars.watchers["Karasuman"].Current > 0;
+	});
+
+	vars.TrioDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["Trio"].Old == 0 && vars.watchers["Trio"].Current > 0;
 	});
 
 	vars.DeathDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(32) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (23) && vars.MapYOffset(0)
-		&& vars.watchers["BossEntityHp3"].Old > 0 && vars.watchers["BossEntityHp3"].Old < 777 && vars.watchers["BossEntityHp3"].Current < 1;
+		return vars.watchers["Death"].Old == 0 && vars.watchers["Death"].Current > 0;
+	});
+
+	vars.CerberusDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["Cerberus"].Old == 0 && vars.watchers["Cerberus"].Current > 0;
+	});
+
+	vars.MedusaDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["Medusa"].Old == 0 && vars.watchers["Medusa"].Current > 0;
+	});
+
+	vars.CreatureDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["Creature"].Old == 0 && vars.watchers["Creature"].Current > 0;
+	});
+
+	vars.LesserDemonDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["LesserDemon"].Old == 0 && vars.watchers["LesserDemon"].Current > 0;
+	});
+
+	vars.Doppleganger40Defeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["Doppleganger40"].Old == 0 && vars.watchers["Doppleganger40"].Current > 0;
+	});
+
+	vars.AkmodanDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["Akmodan"].Old == 0 && vars.watchers["Akmodan"].Current > 0;
+	});
+
+	vars.DarkwingBatDefeated = (Func<bool>)(() =>
+	{
+		return vars.watchers["DarkwingBat"].Old == 0 && vars.watchers["DarkwingBat"].Current > 0;
 	});
 
 	vars.GalamothDefeated = (Func<bool>)(() =>
 	{
-		return vars.MapX(44) && (vars.MapXOffset(0) || vars.MapXOffset(1)) && vars.MapY (12) && (vars.MapYOffset(0) || vars.MapYOffset(1))
-		&& vars.watchers["BossEntityHp"].Old > 0 && vars.watchers["BossEntityHp"].Old < 777 && vars.watchers["BossEntityHp"].Current < 1;
+		return vars.watchers["Galamoth"].Old == 0 && vars.watchers["Galamoth"].Current > 0;
 	});
 
 	vars.ShaftDefeated = (Func<bool>)(() =>
@@ -524,15 +597,25 @@ init {
 			{ "OuterWallFromLibrary", vars.OuterWallFromLibrary() },
 			{ "SecondCastle", vars.SecondCastleEntered() },
 			//Bosses
-			{ "Hippogryph", vars.HippoDefeated() },
+			{ "DraculaPrologue", vars.DraculaPrologueDefeated() },
+			{ "SlograGaibon", vars.SlograGaibonDefeated() },
+			{ "Doppleganger10", vars.Doppleganger10Defeated() },
+			{ "MinotaurWerewolf", vars.MinotaurWerewolfDefeated() },
+			{ "LesserDemon", vars.LesserDemonDefeated() },
+			{ "Karasuman", vars.KarasumanDefeated() },
+			{ "Hippogryph", vars.HippogryphDefeated() },
 			{ "Olrox", vars.OlroxDefeated() },
-			{ "DarkwingBat", vars.DarkwingDefeated() },
+			{ "Succubus", vars.SuccubusDefeated() },
+			{ "Scylla", vars.ScyllaDefeated() },
+			{ "Cerberus", vars.CerberusDefeated() },
+			{ "Granfaloon", vars.GranfaloonDefeated() },
+			{ "DarkwingBat", vars.DarkwingBatDefeated() },
 			{ "Medusa", vars.MedusaDefeated() },
 			{ "Akmodan", vars.AkmodanDefeated() },
 			{ "Trio", vars.TrioDefeated() },
 			{ "Beelzebub", vars.BeelzebubDefeated() },
 			{ "Creature", vars.CreatureDefeated() },
-			{ "Doppleganger40", vars.Dopple40Defeated() },
+			{ "Doppleganger40", vars.Doppleganger40Defeated() },
 			{ "Death", vars.DeathDefeated() },
 			{ "Galamoth", vars.GalamothDefeated() },
 			{ "Shaft", vars.ShaftDefeated() },

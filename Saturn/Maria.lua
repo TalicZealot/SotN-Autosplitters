@@ -3,30 +3,49 @@
 -- Requires LiveSplit 1.7+
 
 local started = false
-local splits = {}
-splits["Hippogryph"] =
-{
-    on = true,
-    split = false,
-    spawned = false
+local splits = {
+    ["SecondCastle"] ={ on = true, split = false },
+    ["Shaft"] = { on = true, split = false, spawned = false },
+    ["Olrox"] = { on = true, split = false, boss = true },
+    ["Doppleganger10"] = { on = true, split = false, boss = true },
+    ["Granfaloon"] = { on = true, split = false, boss = true },
+    ["Scylla"] = { on = true, split = false, boss = true },
+    ["Solgra and Gaibon"] = { on = true, split = false, boss = true },	
+    ["Hippogryph"] = { on = true, split = false, boss = true },
+    ["Beelzebub"] = { on = true, split = false, boss = true },
+    ["Karasuman"] = { on = true, split = false, boss = true },
+    ["Trio"] = { on = true, split = false, boss = true },
+    ["Cerberus"] = { on = true, split = false, boss = true },
+    ["Medusa"] = { on = true, split = false, boss = true },
+    ["Creature"] = { on = true, split = false, boss = true },
+    ["LesserDemon"] = { on = true, split = false, boss = true },
+    ["Doppleganger40"] = { on = true, split = false, boss = true },
+    ["Akmodan"] = { on = true, split = false, boss = true },
+    ["DarkwingBat"] = { on = true, split = false, boss = true },
+    ["Galamoth"] = { on = true, split = false, boss = true },
+    ["SkeletonLeader"] = { on = true, split = false, boss = true }
 }
-splits["SecondCastle"] =
-{
-    on = true,
-    split = false
+local bosses = {
+	["Olrox"] = 0x05D834,
+    ["Doppleganger10"] = 0x05D838,
+    ["Granfaloon"] = 0x05D83C,
+    ["Scylla"] = 0x05D844,
+    ["Solgra and Gaibon"] = 0x05D848,	
+    ["Hippogryph"] = 0x05D84C,
+    ["Beelzebub"] = 0x05D850,
+    ["Karasuman"] = 0x05D858,
+    ["Trio"] = 0x05D85C,
+    ["Cerberus"] = 0x05D864,
+    ["Medusa"] = 0x05D86C,
+    ["Creature"] = 0x05D870,
+    ["LesserDemon"] = 0x05D874,
+    ["Doppleganger40"] = 0x05D878,
+    ["Akmodan"] = 0x05D87C,
+    ["DarkwingBat"] = 0x05D880,
+    ["Galamoth"] = 0x05D884,
+    ["SkeletonLeader"] = 0x05D888
 }
-splits["Medusa"] =
-{
-    on = true,
-    split = false,
-    spawned = false
-}
-splits["Shaft"] =
-{
-    on = true,
-    split = false,
-    spawned = false
-}
+
 
 local function init_livesplit()
     pipe_handle = io.open("//./pipe/LiveSplit", 'a')
@@ -45,12 +64,9 @@ local function init_livesplit()
 end
 
 local function RestartSplits()
-    splits["Hippogryph"].split = false
-    splits["SecondCastle"].split = false
-    splits["Medusa"].split = false
-    splits["Shaft"].split = false
-    splits["Hippogryph"].spawned = false
-    splits["Medusa"].spawned = false
+    for key, val in pairs(splits) do
+        splits[key].split = false
+    end
     splits["Shaft"].spawned = false
 end
 
@@ -68,6 +84,10 @@ end
 
 local function InvertedCastle()
     return memory.readbyte(0x05D336) > 0
+end
+
+local function BossDefeated(address)
+    return memory.read_s32_le(address) > 0
 end
 
 local function BossHp()
@@ -117,19 +137,14 @@ local function main()
         return
     end
 
-    local mapXposition = MapXposition()
-    local mapYposition = MapYposition()
-    local bossEntityHp = BossHp()
-
-    if splits["Hippogryph"].on and not splits["Hippogryph"].split then
-
-        if bossEntityHp > 1 and bossEntityHp < 800 and (mapXposition == 23 or mapXposition == 24) and mapYposition == 13 then
-            splits["Hippogryph"].spawned = true
-        elseif splits["Hippogryph"].spawned and bossEntityHp < 1  and (mapXposition == 23 or mapXposition == 24) and mapYposition == 13 then
-            print("Split: Hippogryph")
-            pipe_handle:write("split\r\n")
-            pipe_handle:flush()
-            splits["Hippogryph"].split = true
+    for key, val in pairs(splits) do
+        if splits[key].on and splits[key].split == false and splits[key].boss then
+            if BossDefeated(bosses[key]) then
+                print("Split: ".. key)
+                pipe_handle:write("split\r\n")
+                pipe_handle:flush()
+                splits[key].split = true
+            end
         end
     end
 
@@ -142,18 +157,10 @@ local function main()
         end
     end
 
-    if splits["Medusa"].on and not splits["Medusa"].split then
-        if bossEntityHp > 1 and bossEntityHp < 1100 and (mapXposition == 39 or mapXposition == 40) and mapYposition == 50 then
-            splits["Medusa"].spawned = true
-        elseif splits["Medusa"].spawned and bossEntityHp < 1 and (mapXposition == 39 or mapXposition == 40) and mapYposition == 50 then
-            print("Split: Medusa")
-            pipe_handle:write("split\r\n")
-            pipe_handle:flush()
-            splits["Medusa"].split = true
-        end
-    end
-
     if splits["Shaft"].on and not splits["Shaft"].split then
+        local mapXposition = MapXposition()
+        local mapYposition = MapYposition()
+        local bossEntityHp = BossHp()
         if bossEntityHp > 1 and bossEntityHp < 1300 and mapXposition == 31 and mapYposition == 34 then
             splits["Shaft"].spawned = true
         elseif splits["Shaft"].spawned and bossEntityHp < 1 and mapXposition == 31 and mapYposition == 34 then
