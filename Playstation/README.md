@@ -1,11 +1,11 @@
 # SotN Autosplitter for Bizhawk
 
 - [LiveSplit](http://livesplit.github.io/) - Here you can find out more about and download LiveSplit. It is a popular timer program typically used for speedruns.
-- [ASL](https://github.com/LiveSplit/LiveSplit/blob/master/Documentation/Auto-Splitters.md) - Here you can find more information about ASL (basically C#) and autosplitters in general.
+- [ASL](https://github.com/LiveSplit/LiveSplit.AutoSplitters/blob/master/README.md) - Here you can find more information about ASL (basically C#) and autosplitters in general.
 
 **Supported emulators for autosplitting:**
 
- - Bizhawk with Octoshock core version 2.6.0+
+ - Bizhawk with Octoshock core version 2.6 - 2.7
 
 ## Features
 

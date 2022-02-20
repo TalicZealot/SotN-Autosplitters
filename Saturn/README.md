@@ -4,13 +4,11 @@
 
  - Bizhawk with Saturnus core version 2.7.0+
 
-**Maria All Bosses script coming in the future**
-
 ## Features
 
 - Automatic start.
 - Automatic restart.
-- Splits at defeating Hippogryph, Medusa, Shaft.
+- Splits at defeating any boss.
 - Split on entering Inverted Castle.
 
 ## Usage
