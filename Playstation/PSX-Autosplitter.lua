@@ -38,6 +38,10 @@ local splits = {
     ["RingOfVlad"] = { on = false, split = false, relic = true },
     ["EyeOfVlad"] = { on = false, split = false, relic = true },
 
+    ["GoldRing"] = { on = false, split = false, item = true },
+    ["SilverRing"] = { on = false, split = false, item = true },
+    ["HolyGlasses"] = { on = false, split = false, item = true },
+
     ["Olrox"] = { on = false, split = false, boss = true },
     ["Doppleganger10"] = { on = false, split = false, boss = true },
     ["Granfaloon"] = { on = false, split = false, boss = true },
@@ -93,64 +97,68 @@ local splits = {
     },
 }
 local bosses = {
- ["DraculaPrologue"] = 0x03CA28,
- ["Olrox"] = 0x03CA2C,
- ["Doppleganger10"] = 0x03CA30,
- ["Granfaloon"] = 0x03CA34,
- ["MinotaurWerewolf"] = 0x03CA38,
- ["Scylla"] = 0x03CA3C,
- ["SlograGaibon"] = 0x03CA40,
- ["Hippogryph"] = 0x03CA44,
- ["Beelzebub"] = 0x03CA48,
- ["Succubus"] = 0x03CA4C,
- ["Karasuman"] = 0x03CA50,
- ["Trio"] = 0x03CA54,
- ["Death"] = 0x03CA58,
- ["Cerberus"] = 0x03CA5C,
- ["SaveRichter"] = 0x03CA60,
- ["Medusa"] = 0x03CA64,
- ["Creature"] = 0x03CA68,
- ["LesserDemon"] = 0x03CA6C,
- ["Doppleganger40"] = 0x03CA70,
- ["Akmodan"] = 0x03CA74,
- ["DarkwingBat"] = 0x03CA78,
- ["Galamoth"] = 0x03CA7C,
-
- ["FinalSave"] =  0x03CA80,
- ["MeetingDeath"] = 0x03CA84,
- ["GetHolyGlasses"] = 0x03CA88,
- ["MeetLibrarian"] = 0x03CA8C,
- ["MeetMaria"] = 0x03CA90
+    ["DraculaPrologue"] = 0x03CA28,
+    ["Olrox"] = 0x03CA2C,
+    ["Doppleganger10"] = 0x03CA30,
+    ["Granfaloon"] = 0x03CA34,
+    ["MinotaurWerewolf"] = 0x03CA38,
+    ["Scylla"] = 0x03CA3C,
+    ["SlograGaibon"] = 0x03CA40,
+    ["Hippogryph"] = 0x03CA44,
+    ["Beelzebub"] = 0x03CA48,
+    ["Succubus"] = 0x03CA4C,
+    ["Karasuman"] = 0x03CA50,
+    ["Trio"] = 0x03CA54,
+    ["Death"] = 0x03CA58,
+    ["Cerberus"] = 0x03CA5C,
+    ["SaveRichter"] = 0x03CA60,
+    ["Medusa"] = 0x03CA64,
+    ["Creature"] = 0x03CA68,
+    ["LesserDemon"] = 0x03CA6C,
+    ["Doppleganger40"] = 0x03CA70,
+    ["Akmodan"] = 0x03CA74,
+    ["DarkwingBat"] = 0x03CA78,
+    ["Galamoth"] = 0x03CA7C,    
+    ["FinalSave"] =  0x03CA80,
+    ["MeetingDeath"] = 0x03CA84,
+    ["GetHolyGlasses"] = 0x03CA88,
+    ["MeetLibrarian"] = 0x03CA8C,
+    ["MeetMaria"] = 0x03CA90
 }
 local relics = {
- ["SoulOfBat"] = 0x097964,
- ["FireOfBat"] = 0x097965,
- ["EchoOfBat"] = 0x097966,
- ["ForceOfEcho"] = 0x097967,
- ["SoulOfWolf"] = 0x097968,
- ["PowerOfWolf"] = 0x097969,
- ["SkillOfWolf"] = 0x09796A,
- ["FormOfMist"] = 0x09796B,
- ["PowerOfMist"] = 0x09796C,
- ["GasCloud"] = 0x09796D,
- ["CubeOfZoe"] = 0x09796E,
- ["SpiritOrb"] = 0x09796F,
- ["GravityBoots"] = 0x097970,
- ["LeapStone"] = 0x097971,
- ["HolySymbol"] = 0x097972,
- ["FaerieScroll"] = 0x097973,
- ["JewelOfOpen"] = 0x097974,
- ["MermanStatue"] = 0x097975,
- ["BatCard"] = 0x097976,
- ["GhostCard"] = 0x097977,
- ["FaerieCard"] = 0x097978,
- ["DemonCard"] = 0x097979,
- ["SwordCard"] = 0x09797A,
- ["HeartOfVlad"] = 0x09797D,
- ["ToothOfVlad"] = 0x09797E,
- ["RibOfVlad"] = 0x09797F,
- ["RingOfVlad"] = 0x097980,
- ["EyeOfVlad"] = 0x097981,
+    ["SoulOfBat"] = 0x097964,
+    ["FireOfBat"] = 0x097965,
+    ["EchoOfBat"] = 0x097966,
+    ["ForceOfEcho"] = 0x097967,
+    ["SoulOfWolf"] = 0x097968,
+    ["PowerOfWolf"] = 0x097969,
+    ["SkillOfWolf"] = 0x09796A,
+    ["FormOfMist"] = 0x09796B,
+    ["PowerOfMist"] = 0x09796C,
+    ["GasCloud"] = 0x09796D,
+    ["CubeOfZoe"] = 0x09796E,
+    ["SpiritOrb"] = 0x09796F,
+    ["GravityBoots"] = 0x097970,
+    ["LeapStone"] = 0x097971,
+    ["HolySymbol"] = 0x097972,
+    ["FaerieScroll"] = 0x097973,
+    ["JewelOfOpen"] = 0x097974,
+    ["MermanStatue"] = 0x097975,
+    ["BatCard"] = 0x097976,
+    ["GhostCard"] = 0x097977,
+    ["FaerieCard"] = 0x097978,
+    ["DemonCard"] = 0x097979,
+    ["SwordCard"] = 0x09797A,
+    ["HeartOfVlad"] = 0x09797D,
+    ["ToothOfVlad"] = 0x09797E,
+    ["RibOfVlad"] = 0x09797F,
+    ["RingOfVlad"] = 0x097980,
+    ["EyeOfVlad"] = 0x097981,
+}
+local items = {
+    ["GoldRing"] = 0x097A7B,
+    ["SilverRing"] = 0x097A7C,
+    ["HolyGlasses"] = 0x097A55,
 }
 local gameAddresses = {
     MapX = 0x0730B0,
@@ -224,6 +232,10 @@ end
 
 local function RelicCollected(address)
     return memory.readbyte(address) == 3
+end
+
+local function ItemCollected(address)
+    return memory.readbyte(address) > 0
 end
 
 local function LocationReached(split)
@@ -405,6 +417,14 @@ local function main()
         end
         if splits[key].on and splits[key].split == false and splits[key].relic then
             if RelicCollected(relics[key]) then
+                print("Split: ".. key)
+                pipe_handle:write("split\r\n")
+                pipe_handle:flush()
+                splits[key].split = true
+            end
+        end
+        if splits[key].on and splits[key].split == false and splits[key].item then
+            if ItemCollected(relics[key]) then
                 print("Split: ".. key)
                 pipe_handle:write("split\r\n")
                 pipe_handle:flush()

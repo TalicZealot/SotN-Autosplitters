@@ -14,17 +14,12 @@
 ## Usage
 
 - Download https://raw.githubusercontent.com/TalicZealot/SotN-Autosplitters/main/Saturn/MariaAny%25.lua
-- Open LiveSplit and set up your splits as follows: Hippogryph, Inverted Castle, Medusa, Shaft
 - Open the game.
 - Open the file you downloaded through Tools > Lua Console > Script > Open Script
 - If everything went right you should see the message "Connected to LiveSplit"
-- If you want to deactivate auto-splits open the lua file and set that split to off like so:
+- If you want to deactivate auto-splits open the lua file and set that split's on value to false like so:
 ```
-splits["Hippogryph"] =
-{
-    on = false,
-    split = false
-}
+["Doppleganger10"] = { on = false, split = false, boss = true },
 ```
 
 ## Bugs
