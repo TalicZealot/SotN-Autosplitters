@@ -222,6 +222,10 @@ local function RestartSplits()
     end
 end
 
+local function InGame()
+    return memory.readbyte(gameAddresses.GameStatus) == 2
+end
+
 local function InvertedCastle()
     return memory.readbyte(gameAddresses.SecondCastle) > 0
 end
@@ -374,6 +378,11 @@ local function Restart()
 end
 
 local function main()
+
+    if InGame() == false then
+        return
+    end
+
     if started == false and Start() then
         print("Start")
         pipe_handle:write("starttimer\r\n")
@@ -407,32 +416,23 @@ local function main()
     bossHp.current = BossHp()
 
     for key, val in pairs(splits) do
-        if splits[key].on and splits[key].split == false and splits[key].boss then
-            if BossDefeated(bosses[key]) then
+        if splits[key].on and splits[key].split == false then
+            if splits[key].boss and BossDefeated(bosses[key]) then
                 print("Split: ".. key)
                 pipe_handle:write("split\r\n")
                 pipe_handle:flush()
                 splits[key].split = true
-            end
-        end
-        if splits[key].on and splits[key].split == false and splits[key].relic then
-            if RelicCollected(relics[key]) then
+            elseif splits[key].relic and RelicCollected(relics[key]) then
                 print("Split: ".. key)
                 pipe_handle:write("split\r\n")
                 pipe_handle:flush()
                 splits[key].split = true
-            end
-        end
-        if splits[key].on and splits[key].split == false and splits[key].item then
-            if ItemCollected(relics[key]) then
+            elseif splits[key].item and ItemCollected(relics[key]) then
                 print("Split: ".. key)
                 pipe_handle:write("split\r\n")
                 pipe_handle:flush()
                 splits[key].split = true
-            end
-        end
-        if splits[key].on and splits[key].split == false and splits[key].location then
-            if LocationReached(splits[key]) then
+            elseif splits[key].location and LocationReached(splits[key]) then
                 print("Split: ".. key)
                 pipe_handle:write("split\r\n")
                 pipe_handle:flush()
