@@ -27,7 +27,7 @@
 
 ### Usage
 
-- Download https://raw.githubusercontent.com/TalicZealot/SotN-Autosplitters/main/Saturn/PSX-Autosplitter.lua.lua
+- Download https://raw.githubusercontent.com/TalicZealot/SotN-Autosplitters/main/Playstation/PSX-Autosplitter.lua
 - Open the game.
 - Open the file you downloaded through Tools > Lua Console > Script > Open Script
 - If everything went right you should see the message "Connected to LiveSplit"
