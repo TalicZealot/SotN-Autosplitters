@@ -427,7 +427,7 @@ local function main()
                 pipe_handle:write("split\r\n")
                 pipe_handle:flush()
                 splits[key].split = true
-            elseif splits[key].item and ItemCollected(relics[key]) then
+            elseif splits[key].item and ItemCollected(items[key]) then
                 print("Split: ".. key)
                 pipe_handle:write("split\r\n")
                 pipe_handle:flush()
