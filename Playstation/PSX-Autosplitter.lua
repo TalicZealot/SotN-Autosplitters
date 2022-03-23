@@ -41,6 +41,7 @@ local splits = {
     ["GoldRing"] = { on = false, split = false, item = true },
     ["SilverRing"] = { on = false, split = false, item = true },
     ["HolyGlasses"] = { on = false, split = false, item = true },
+    ["ShieldRod"] = { on = false, split = false, item = true },
 
     ["Olrox"] = { on = false, split = false, boss = true },
     ["Doppleganger10"] = { on = false, split = false, boss = true },
@@ -159,6 +160,7 @@ local items = {
     ["GoldRing"] = 0x097A7B,
     ["SilverRing"] = 0x097A7C,
     ["HolyGlasses"] = 0x097A55,
+    ["ShieldRod"] = 0x09798E,
 }
 local gameAddresses = {
     MapX = 0x0730B0,
