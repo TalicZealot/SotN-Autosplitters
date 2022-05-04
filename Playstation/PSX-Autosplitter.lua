@@ -2,9 +2,8 @@
 -- Base code by Trysdyn Black
 -- Requires LiveSplit 1.7+
 
-local started = false
 local splits = {
-    ["SecondCastle"] ={ on = true, split = false },
+    ["SecondCastle"] = { on = true, split = false },
 
     ["Shaft"] = { on = false, split = false },
     ["Dracula"] = { on = true, split = false },
@@ -44,10 +43,10 @@ local splits = {
     ["ShieldRod"] = { on = false, split = false, item = true },
 
     ["Olrox"] = { on = false, split = false, boss = true },
-    ["Doppleganger10"] = { on = false, split = false, boss = true },
+    ["Doppleganger10"] = { on = true, split = false, boss = true },
     ["Granfaloon"] = { on = false, split = false, boss = true },
     ["Scylla"] = { on = false, split = false, boss = true },
-    ["Solgra and Gaibon"] = { on = false, split = false, boss = true },	
+    ["SlograGaibon"] = { on = true, split = false, boss = true },	
     ["Hippogryph"] = { on = false, split = false, boss = true },
     ["Beelzebub"] = { on = false, split = false, boss = true },
     ["Karasuman"] = { on = false, split = false, boss = true },
@@ -197,6 +196,7 @@ local bossHp = {
     current = 0,
     old = 0
 }
+local started = false
 
 
 local function init_livesplit()
@@ -230,6 +230,10 @@ end
 
 local function InvertedCastle()
     return memory.readbyte(gameAddresses.SecondCastle) > 0
+end
+
+local function InPrologue()
+    return (location.mapX.current >= 0 and location.mapX.current <= 1) and (location.mapY.current >= 0 and location.mapY.current <= 2)
 end
 
 local function BossDefeated(address)
@@ -416,6 +420,10 @@ local function main()
 
     bossHp.old = bossHp.current
     bossHp.current = BossHp()
+
+    if InPrologue() then
+        return
+    end
 
     for key, val in pairs(splits) do
         if splits[key].on and splits[key].split == false then
