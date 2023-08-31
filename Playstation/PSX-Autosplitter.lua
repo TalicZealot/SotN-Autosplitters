@@ -42,6 +42,7 @@ local splits = {
     ["HolyGlasses"] = { on = false, split = false, item = true },
     ["ShieldRod"] = { on = false, split = false, item = true },
 
+    ["DraculaPrologue"] = { on = false, split = false, boss = true },
     ["Olrox"] = { on = false, split = false, boss = true },
     ["Doppleganger10"] = { on = true, split = false, boss = true },
     ["Granfaloon"] = { on = false, split = false, boss = true },
