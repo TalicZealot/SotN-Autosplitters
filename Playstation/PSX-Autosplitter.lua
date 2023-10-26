@@ -462,7 +462,7 @@ local function main()
     end
 
     if splits["Shaft"].on and not splits["Shaft"].split then
-        if bossHp.old < 1300 and bossHp.old > 0 and bossHp.current < 1 and (location.mapX.current + location.mapXoffset.current) == 31 and (location.mapY.current + location.mapYoffset.current) == 34 then
+        if bossHp.old < 1300 and bossHp.old > 0 and bossHp.current < 1 and (location.mapX.current + location.mapXoffset.current) == 31 and (location.mapY.current + location.mapYoffset.current) == 32 then
             print("Split: Shaft")
             pipe_handle:write("split\r\n")
             pipe_handle:flush()
